@@ -150,20 +150,25 @@ const HomePage: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 -mt-8 md:-mt-16 relative z-20">
         <div className="bg-white py-6 md:py-8 px-6 md:px-10 shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-6 md:gap-8 border-b-4 border-brand-purple rounded-xl">
           <div className="flex items-center space-x-6 md:space-x-8 w-full lg:w-auto">
-            <div className="bg-brand-purple text-white p-3 md:p-4 rounded-lg text-center leading-none min-w-[70px] md:min-w-[80px] shadow-lg flex-shrink-0">
-              <span className="block text-2xl md:text-3xl font-black">28</span>
-              <span className="text-[8px] md:text-[10px] font-bold uppercase tracking-widest">
-                MAR 2024
+            <div className="bg-brand-purple text-white p-3 md:p-4 rounded-lg text-center leading-none min-w-[90px] md:min-w-[110px] shadow-lg flex-shrink-0">
+              <span className="block text-[10px] md:text-xs font-black uppercase tracking-widest">
+                Anniversary
+              </span>
+              <span className="block text-xl md:text-2xl font-black mt-1">
+                29 Oct
+              </span>
+              <span className="text-[8px] md:text-[10px] font-bold uppercase tracking-widest opacity-90">
+                Annually
               </span>
             </div>
             <div>
               <div className="flex items-center space-x-4 text-[9px] md:text-[10px] font-black uppercase text-brand-purple mb-1 md:mb-2 tracking-widest">
                 <span className="flex items-center space-x-1 italic">
-                  Upcoming: Prayer & Worship
+                  ANNIVERSARY: 29th October annually
                 </span>
               </div>
               <h4 className="font-black text-lg md:text-xl text-gray-900 tracking-tighter uppercase leading-tight">
-                Simon Jones: Heaven's Blueprint
+                THE SONSHIP HUB ANNIVERSARY
               </h4>
             </div>
           </div>
@@ -172,7 +177,7 @@ const HomePage: React.FC = () => {
               <span>📍 PH, Rivers State, Nigeria</span>
             </div>
             <button className="bg-brand-gold hover:bg-brand-goldDark text-brand-purple px-6 md:px-8 py-3 rounded-lg text-[9px] md:text-[10px] font-black tracking-widest uppercase transition-all shadow-md active:scale-95 w-full sm:w-auto">
-              Event Details
+              View Details
             </button>
           </div>
         </div>
