@@ -83,9 +83,11 @@ const Hero: React.FC = () => {
       <div className="relative z-10 text-center px-6 max-w-50xl mx-auto">
         <div className="overflow-hidden mb-4">
           <h1 className="text-white text-4xl sm:text-6xl md:text-8xl lg:text-9xl font-black leading-[0.95] tracking-tighter uppercase animate-in slide-in-from-bottom-8 duration-700 fill-mode-both">
-            ORDINARY TO 
-            <br className="hidden sm:block" />
-            OUTSTANDING
+            <span className="whitespace-nowrap">ORDINARY</span>{" "}
+            <span className="inline-flex items-baseline gap-3 lg:gap-4 whitespace-nowrap">
+              <span>TO</span>
+              <span>OUTSTANDING</span>
+            </span>
           </h1>
         </div>
         <div className="w-12 h-1 bg-brand-gold mx-auto mb-8 animate-in zoom-in duration-1000 delay-300 fill-mode-both"></div>
