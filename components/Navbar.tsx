@@ -27,7 +27,7 @@ const Navbar: React.FC<NavbarProps> = ({ onViewChange, currentView }) => {
 
   const navLinks = [
     { name: "HOME", id: "home" },
-    { name: "ELEMENTS", id: "mission" },
+    { name: "ABOUT US", id: "mission" },
     { name: "EVENTS", id: "events" },
     { name: "SERMONS", id: "sermons" },
     { name: "GALLERY", id: "gallery" },
