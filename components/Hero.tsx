@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Hero: React.FC = () => {
+  const navigate = useNavigate();
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const slides = [
@@ -101,8 +103,8 @@ const Hero: React.FC = () => {
           <button className="bg-brand-purple hover:bg-brand-purpleLight text-white px-8 md:px-10 py-4 font-black rounded shadow-lg transition-all uppercase tracking-[0.2em] text-[10px] w-full sm:w-auto hover:scale-105 active:scale-95">
             Our Manifesto
           </button>
-          <button className="bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white border border-white/20 px-8 md:px-10 py-4 font-black rounded transition-all uppercase tracking-[0.2em] text-[10px] w-full sm:w-auto hover:scale-105 active:scale-95">
-            Watch Story
+          <button onClick={() => navigate("/auth")} className="bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white border border-white/20 px-8 md:px-10 py-4 font-black rounded transition-all uppercase tracking-[0.2em] text-[10px] w-full sm:w-auto hover:scale-105 active:scale-95">
+            Get Started
           </button>
         </div>
       </div>

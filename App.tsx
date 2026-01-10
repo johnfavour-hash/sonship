@@ -7,7 +7,6 @@ import {
   useParams,
 } from "react-router-dom";
 
-import Header from "./components/Header";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Mission from "./components/Mission";
@@ -423,9 +422,6 @@ const App: React.FC = () => {
 
   return (
     <div className="min-h-screen selection:bg-brand-gold selection:text-brand-purple font-['Inter']">
-      <Header
-        onViewChange={(view) => navigate(view === "home" ? "/" : `/${view}`)}
-      />
       <Navbar
         onViewChange={(view) => navigate(view === "home" ? "/" : `/${view}`)}
         currentView="home"
