@@ -8,7 +8,7 @@ export type TeamMember = {
 export const TEAM_IMAGE_FIT_BY_NAME: Record<string, "cover" | "contain"> = {
   // These photos look cropped awkwardly with `cover`, so we use `contain` with padding.
   "AGUBE SAMSON .O.": "contain",
-  "OKOROAFOR SAMUEL": "contain",
+  "OKORAFOR SAMUEL": "contain",
 };
 
 export const teamMembers: TeamMember[] = [
@@ -68,7 +68,7 @@ export const teamMembers: TeamMember[] = [
   {
     name: "ONYEADI DIRICHUKWU JOHN",
     role: "MENTOR & SPECIAL OPERATIONS MANAGER",
-    img: "/assets/Onyeadi Dirichukwu John.jpg",
+    img: "/assets/ONYEADI DIRICHUKWU JOHN.jpeg",
     bio: "Onyeadi Dirichukwu John serves as the Mentor and Special Operations Manager at The Sonship Hub, providing guidance, mentorship, and strategic oversight for special projects and operational initiatives. He plays a key role in shaping programs that develop the skills, character, and purpose of young men within the organization.\n\nHe is a trained Microbiologist with expertise in agro-business, education coaching, and youth leadership, and is currently pursuing a Master’s degree. John leverages his diverse academic and professional background to design and implement impactful strategies that foster growth, accountability, and excellence among members.\n\nIn his capacity as Mentor and Special Operations Manager, he ensures that initiatives align with the Hub’s mission, supporting both operational efficiency and personal development for the target audience. He is committed to empowering the next generation to live purposefully, overcome challenges, and achieve outstanding success in all areas of life.",
   },
   {
@@ -80,7 +80,7 @@ export const teamMembers: TeamMember[] = [
   {
     name: "TEESI VICTORY",
     role: "AMBASSADOR & EVENT ORGANISER",
-    img: "https://images.unsplash.com/photo-1531384441138-2736e62e0919?auto=format&fit=crop&q=80&w=400",
+    img: "/assets/Tesimi victory.jpeg",
   },
   {
     name: "JULIAN WEST",

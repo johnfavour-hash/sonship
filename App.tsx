@@ -17,12 +17,14 @@ import Events from "./components/Events";
 import Stats from "./components/Stats";
 import Team from "./components/Team";
 import TeamMemberBio from "./components/TeamMemberBio";
+import FatherBio from "./components/FatherBio";
 import PastorPodcasts from "./components/PastorPodcasts";
 import Sponsors from "./components/Sponsors";
 import Footer from "./components/Footer";
 import Auth from "./components/Auth";
 import SupportVision from "./components/SupportVision";
 import { teamMembers, type TeamMember } from "./data/teamMembers";
+import { fathers } from "./data/fathers";
 
 type GallerySource = {
   alt: string;
@@ -400,6 +402,23 @@ const TeamMemberBioRoute: React.FC = () => {
   return <TeamMemberBio member={member} onBack={() => navigate("/#team")} />;
 };
 
+const FatherBioRoute: React.FC = () => {
+  const { slug } = useParams<{ slug: string }>();
+  const navigate = useNavigate();
+  const fathersFromData = fathers;
+
+  const father = useMemo(() => {
+    if (!slug) return null;
+    return fathersFromData.find((f) => slugify(f.name) === slug) ?? null;
+  }, [slug, fathersFromData]);
+
+  if (!father) {
+    return <Navigate to="/" replace />;
+  }
+
+  return <FatherBio father={father} onBack={() => navigate("/#fathers")} />;
+};
+
 const App: React.FC = () => {
   const navigate = useNavigate();
 
@@ -420,6 +439,7 @@ const App: React.FC = () => {
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/support-vision" element={<SupportVisionPage />} />
           <Route path="/team/:slug" element={<TeamMemberBioRoute />} />
+          <Route path="/fathers/:slug" element={<FatherBioRoute />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </main>

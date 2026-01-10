@@ -1,32 +1,23 @@
 import React from "react";
 import { Quote } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import { fathers } from "../data/fathers";
+
+function slugify(input: string): string {
+  return input
+    .trim()
+    .toLowerCase()
+    .replace(/['']/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/-+/g, "-")
+    .replace(/^-|-$/g, "");
+}
 
 const Fathers: React.FC = () => {
-  const fathers = [
-    {
-      name: "Pst. Engr. Imarhiagbe Henry",
-      role: "FAMILY LIFE",
-      img: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=600",
-    },
-    {
-      name: "Pst. Engr. Uko Robson",
-      role: "LEADERSHIP & FINANCE",
-      img: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=600",
-    },
-    {
-      name: "Pst. Prof. Chujor Jacobs Chujor",
-      role: "THERAPY & COUNSELLING",
-      img: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=600",
-    },
-    {
-      name: "Pastor Meibi Ofubu",
-      role: "CAREER",
-      img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=600",
-    },
-  ];
+  const navigate = useNavigate();
 
   return (
-    <section className="py-24 bg-brand-purple relative overflow-hidden">
+    <section id="fathers" className="py-24 bg-brand-purple relative overflow-hidden">
       {/* Decorative background element */}
       <div className="absolute top-0 right-0 w-64 h-64 bg-brand-gold/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl"></div>
 
@@ -43,8 +34,16 @@ const Fathers: React.FC = () => {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
           {fathers.map((father, idx) => (
-            <div key={idx} className="group">
-              <div className="relative mb-6 aspect-[4/5] overflow-hidden rounded-2xl border-2 border-brand-gold/20 shadow-2xl transition-all duration-500 group-hover:border-brand-gold">
+            <button
+              key={idx}
+              onClick={() => {
+                const slug = slugify(father.name);
+                navigate(`/fathers/${slug}`);
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }}
+              className="group text-left hover:no-underline focus:outline-none"
+            >
+              <div className="relative mb-6 aspect-[4/5] overflow-hidden rounded-2xl border-2 border-brand-gold/20 shadow-2xl transition-all duration-500 group-hover:border-brand-gold cursor-pointer">
                 <img
                   src={father.img}
                   alt={father.name}
@@ -62,7 +61,7 @@ const Fathers: React.FC = () => {
                   </p>
                 </div>
               </div>
-            </div>
+            </button>
           ))}
         </div>
 
