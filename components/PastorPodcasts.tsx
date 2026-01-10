@@ -19,7 +19,7 @@ const PastorPodcasts: React.FC = () => {
   const displayedPodcasts = expandSermons ? podcasts : podcasts.slice(0, 3);
 
   return (
-    <section className="py-24 bg-white">
+    <section id="sermons" className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-16">
         {/* Leader Column */}
         <div className="flex flex-col md:flex-row gap-8">
