@@ -17,7 +17,7 @@ const Sponsors: React.FC = () => {
           <style>{`
             @keyframes scroll-right-to-left {
               0% {
-                transform: translateX(100vw);
+                transform: translateX(100%);
               }
               100% {
                 transform: translateX(-100%);
@@ -27,7 +27,7 @@ const Sponsors: React.FC = () => {
             .sponsor-scroll {
               display: flex;
               gap: 3rem;
-              animation: scroll-right-to-left 30s linear infinite;
+              animation: scroll-right-to-left 40s linear infinite;
               width: max-content;
             }
             
@@ -37,7 +37,7 @@ const Sponsors: React.FC = () => {
           `}</style>
           
           <div className="sponsor-scroll opacity-30 grayscale contrast-125">
-            {[...sponsors, ...sponsors].map((s, index) => (
+            {[...sponsors, ...sponsors, ...sponsors].map((s, index) => (
               <span key={`${s}-${index}`} className="text-xl font-black tracking-tighter whitespace-nowrap flex-shrink-0">
                 {s}
               </span>
