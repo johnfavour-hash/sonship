@@ -1,16 +1,65 @@
 
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 const Stats: React.FC = () => {
+  const [counts, setCounts] = useState([0, 0, 0, 0]);
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const hasStarted = useRef(false);
+
   const stats = [
-    { value: '5,000+', label: 'Young Heroes' },
-    { value: '120', label: 'Lead Mentors' },
-    { value: '840+', label: 'Hub Sessions' },
-    { value: '94%', label: 'Transformation Rate' }
+    { value: 5000, label: 'Young Heroes', suffix: '+' },
+    { value: 120, label: 'Lead Mentors', suffix: '' },
+    { value: 840, label: 'Hub Sessions', suffix: '+' },
+    { value: 94, label: 'Transformation Rate', suffix: '%' }
   ];
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasStarted.current) {
+          hasStarted.current = true;
+          
+          // Start counting animation
+          stats.forEach((stat, idx) => {
+            const duration = 2000; // 2 seconds for counting
+            const startTime = Date.now();
+            
+            const animate = () => {
+              const elapsed = Date.now() - startTime;
+              const progress = Math.min(elapsed / duration, 1);
+              const currentCount = Math.floor(stat.value * progress);
+              
+              setCounts(prevCounts => {
+                const newCounts = [...prevCounts];
+                newCounts[idx] = currentCount;
+                return newCounts;
+              });
+              
+              if (progress < 1) {
+                requestAnimationFrame(animate);
+              }
+            };
+            
+            animate();
+          });
+        }
+      },
+      { threshold: 0.5 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
   return (
-    <section className="relative py-32 md:py-48 overflow-hidden bg-black flex items-center justify-center text-center">
+    <section ref={sectionRef} className="relative py-32 md:py-48 overflow-hidden bg-black flex items-center justify-center text-center">
       {/* Background Image with Warm/Dark Tones */}
       <div className="absolute inset-0 z-0">
         <img 
@@ -42,7 +91,7 @@ const Stats: React.FC = () => {
               style={{ animationDelay: `${500 + (idx * 150)}ms`, animationFillMode: 'both' }}
             >
               <div className="text-5xl md:text-7xl font-black text-brand-gold mb-3 tracking-tighter">
-                {stat.value}
+                {counts[idx].toLocaleString()}{stat.suffix}
               </div>
               <div className="text-white/40 uppercase tracking-[0.3em] text-[10px] md:text-xs font-black">
                 {stat.label}
