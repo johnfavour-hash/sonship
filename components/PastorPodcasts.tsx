@@ -41,9 +41,7 @@ const PastorPodcasts: React.FC = () => {
           </div>
           <div className="md:w-1/2 flex flex-col justify-center">
             <h2 className="text-3xl font-black leading-tight mb-6 uppercase tracking-tighter">
-              Nobody is perfect.
-              <br />
-              Everything is possible
+              No Limits, Keep Soaring!
             </h2>
             <p className="text-gray-500 text-sm leading-relaxed mb-6">
               There is Hope: Don't faint, Rise again - if thou faint in the days of adversity, thy strength is small.

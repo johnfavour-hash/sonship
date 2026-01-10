@@ -50,9 +50,8 @@ const HomePage: React.FC = () => {
     () => [
       {
         alt: "Gallery image",
-        src: "/assets/gallery/pexels-shvetsa-3845458-768.webp",
-        srcSet:
-          "/assets/gallery/pexels-shvetsa-3845458-480.webp 480w, /assets/gallery/pexels-shvetsa-3845458-768.webp 768w, /assets/gallery/pexels-shvetsa-3845458-1024.webp 1024w, /assets/gallery/pexels-shvetsa-3845458-1440.webp 1440w",
+        src: "/assets/uaususii.jpeg",
+        srcSet: "/assets/uaususii.jpeg",
         sizes: "(min-width: 1024px) 16.666vw, (min-width: 768px) 25vw, 50vw",
       },
       {
