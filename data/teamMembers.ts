@@ -82,9 +82,4 @@ export const teamMembers: TeamMember[] = [
     role: "AMBASSADOR & EVENT ORGANISER",
     img: "/assets/Tesimi victory.jpeg",
   },
-  {
-    name: "JULIAN WEST",
-    role: "TECHNICAL ADVISOR",
-    img: "https://images.unsplash.com/photo-1499996860823-5214fcc65f8f?auto=format&fit=crop&q=80&w=400",
-  },
 ];

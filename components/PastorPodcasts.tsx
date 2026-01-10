@@ -1,14 +1,22 @@
-import React from "react";
-import { Play } from "lucide-react";
+import React, { useState } from "react";
+import { Play, ChevronDown } from "lucide-react";
 
 const LEADERSHIP_IMAGE_SRC = "/assets/Samson Agube.png";
 
 const PastorPodcasts: React.FC = () => {
+  const [expandSermons, setExpandSermons] = useState(false);
+
   const podcasts = [
-    { title: "Taste and see that the Lord is good", author: "By Hub Leaders" },
-    { title: "The Journey to Sonship: Part 1", author: "By Hub Leaders" },
-    { title: "Breaking Vices and Modern Bondage", author: "By Hub Leaders" },
+    { title: "The gap between", author: "By Agube Samson O, TSH President" },
+    { title: "Who am I?", author: "By Agube Samson O, TSH President" },
+    { title: "Why am I born?", author: "By Agube Samson O, TSH President" },
+    { title: "The voyage - Ships To Tarshish", author: "By Agube Samson O, TSH President" },
+    { title: "Heart makers vs Heart breakers", author: "By Agube Samson O, TSH President" },
+    { title: "The visionary man", author: "By Agube Samson O, TSH President" },
+    { title: "Wake up, Wisen up, Win up", author: "By Agube Samson O, TSH President" },
   ];
+
+  const displayedPodcasts = expandSermons ? podcasts : podcasts.slice(0, 3);
 
   return (
     <section className="py-24 bg-white">
@@ -38,18 +46,17 @@ const PastorPodcasts: React.FC = () => {
               Everything is possible
             </h2>
             <p className="text-gray-500 text-sm leading-relaxed mb-6">
-              We have a strong sense of community at the Sonship Hub. We
-              encourage young men to find their identity in Christ.
+              There is Hope: Don't faint, Rise again - if thou faint in the days of adversity, thy strength is small.
             </p>
             <p className="text-gray-500 text-sm leading-relaxed mb-8">
-              The mission of our hub is to transform ordinary men into heroes
-              through the power of God's word and accountability.
+              A righteous man falleth seven times and riseth again! There is hope of a tree, if it be cut down, it shall sprout again! Don't be weary in well doing, for in due season, thou shalt reap if thou faint not.
             </p>
             <div>
               <h5 className="font-bold text-gray-900">
-                Visionary Leadership,{" "}
+                Agube Samson. O.
+                <br />
                 <span className="text-brand-purple uppercase text-[10px] tracking-widest">
-                  Sonship Hub
+                  President, The Sonship Hub
                 </span>
               </h5>
             </div>
@@ -65,10 +72,10 @@ const PastorPodcasts: React.FC = () => {
             Listen to the latest messages
           </p>
           <div className="space-y-6">
-            {podcasts.map((podcast, i) => (
+            {displayedPodcasts.map((podcast, i) => (
               <div
                 key={i}
-                className="flex items-start space-x-6 pb-6 border-b border-gray-100 group cursor-pointer"
+                className="flex items-start space-x-6 pb-6 border-b border-gray-100 group cursor-pointer animate-in fade-in"
               >
                 <div className="bg-gray-100 p-2 rounded group-hover:bg-brand-purple group-hover:text-white transition-all">
                   <Play size={16} fill="currentColor" />
@@ -84,8 +91,12 @@ const PastorPodcasts: React.FC = () => {
               </div>
             ))}
           </div>
-          <button className="mt-8 bg-brand-gold hover:bg-brand-goldDark text-brand-purple px-6 py-2 rounded text-[10px] font-bold tracking-widest uppercase transition-all">
-            View All Messages
+          <button 
+            onClick={() => setExpandSermons(!expandSermons)}
+            className="mt-8 bg-brand-gold hover:bg-brand-goldDark text-brand-purple px-6 py-2 rounded text-[10px] font-bold tracking-widest uppercase transition-all flex items-center space-x-2"
+          >
+            <span>{expandSermons ? "Show Less" : "View All Messages"}</span>
+            <ChevronDown size={14} className={`transition-transform ${expandSermons ? "rotate-180" : ""}`} />
           </button>
         </div>
       </div>
