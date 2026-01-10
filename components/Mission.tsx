@@ -6,7 +6,7 @@ const Mission: React.FC = () => {
     {
       title: "VISION",
       content:
-        "To see that a generation of young men, between the ages of 13 to 29, who are on a journey to adulthood and eternity, don’t just live like ordinary men, but are transformed and outstanding in every positive area of their lives.",
+        "To see that a generation of young men and all males who are on a journey to adulthood and eternity, don't just live like ordinary men, but are transformed and outstanding in every positive area of their lives.",
       icon: <Eye className="text-brand-gold" size={32} />,
       bg: "bg-brand-purple",
     },
@@ -76,7 +76,7 @@ const Mission: React.FC = () => {
             />
             <div className="absolute inset-0 bg-brand-purple/20 mix-blend-multiply"></div>
             <div className="absolute top-6 left-6 md:top-8 md:left-8 bg-brand-gold text-brand-purple font-black text-[9px] md:text-[10px] tracking-widest uppercase px-4 md:px-6 py-2 rounded-full shadow-lg">
-              Males Only: 13 - 29
+              All Males Welcome
             </div>
           </div>
           <div className="lg:w-1/2 p-10 md:p-16 flex flex-col justify-center">
@@ -91,8 +91,8 @@ const Mission: React.FC = () => {
 
             <p className="text-gray-600 text-base md:text-lg leading-relaxed mb-6 md:mb-8 italic">
               "The Sonship Hub presents a safe space{" "}
-              <strong className="text-brand-purple">“for males only”</strong>{" "}
-              (between the ages of 13 to 29) to thrive, despite modern vices..."
+              <strong className="text-brand-purple">"for all males"</strong>{" "}
+              to thrive, despite modern vices..."
             </p>
 
             <p className="text-gray-500 text-xs md:text-sm leading-relaxed mb-8 md:mb-10">
