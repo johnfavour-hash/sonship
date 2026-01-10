@@ -100,7 +100,13 @@ const Hero: React.FC = () => {
           for.
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-in slide-in-from-bottom-4 duration-700 delay-700 fill-mode-both">
-          <button className="bg-brand-purple hover:bg-brand-purpleLight text-white px-8 md:px-10 py-4 font-black rounded shadow-lg transition-all uppercase tracking-[0.2em] text-[10px] w-full sm:w-auto hover:scale-105 active:scale-95">
+          <button onClick={() => {
+            navigate("/");
+            setTimeout(() => {
+              const el = document.getElementById("mission");
+              if (el) el.scrollIntoView({ behavior: "smooth" });
+            }, 100);
+          }} className="bg-brand-purple hover:bg-brand-purpleLight text-white px-8 md:px-10 py-4 font-black rounded shadow-lg transition-all uppercase tracking-[0.2em] text-[10px] w-full sm:w-auto hover:scale-105 active:scale-95">
             Our Manifesto
           </button>
           <button onClick={() => navigate("/register")} className="bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white border border-white/20 px-8 md:px-10 py-4 font-black rounded transition-all uppercase tracking-[0.2em] text-[10px] w-full sm:w-auto hover:scale-105 active:scale-95">
