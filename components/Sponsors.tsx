@@ -15,19 +15,19 @@ const Sponsors: React.FC = () => {
         {/* Scrolling Container */}
         <div className="overflow-hidden">
           <style>{`
-            @keyframes scroll-left-to-right {
+            @keyframes scroll-right-to-left {
               0% {
-                transform: translateX(-100%);
+                transform: translateX(100vw);
               }
               100% {
-                transform: translateX(100vw);
+                transform: translateX(-100%);
               }
             }
             
             .sponsor-scroll {
               display: flex;
               gap: 3rem;
-              animation: scroll-left-to-right 30s linear infinite;
+              animation: scroll-right-to-left 30s linear infinite;
               width: max-content;
             }
             
