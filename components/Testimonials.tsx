@@ -3,24 +3,24 @@ import React from 'react';
 const Testimonials: React.FC = () => {
   const testimonials = [
     {
-      name: "Robert Green",
-      text: "Being part of Sonship Hub has completely transformed my spiritual journey. The community is welcoming and the teachings are deep.",
-      img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=150",
+      name: "Samson O. Agube",
+      text: "The Tortise does not go anywhere, until it sticks out it's neck.",
+      img: "./assets/Samson Agube.png",
     },
     {
-      name: "Anna Jensen",
-      text: "I found my purpose here. The community resources and shared wisdom help me stay grounded in the word every single morning.",
-      img: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=150",
+      name: "Samson O. Agube",
+      text: "In life concentrate on one thing, 'this one thing I do', if you dance to the tune of others, you'll forget the tune of your own life, you'll dance until you become lame.",
+      img: "./assets/Samson Agube.png",
     },
     {
-      name: "James Mitchell",
-      text: "The mentorship I received here transformed my perspective on faith and life. I'm forever grateful for this incredible community.",
-      img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=150",
+      name: "Samson O. Agube",
+      text: "Your conviction is what you tell yourself, privately or publicly",
+      img: "./assets/Samson Agube.png",
     },
     {
-      name: "Sarah Williams",
-      text: "Sonship Hub gave me the tools and support to navigate challenges with confidence. Truly a blessing in my life.",
-      img: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=150",
+      name: "Samson O. Agube",
+      text: "Living one day at a time is not difficult, attaining greatness is not difficult, it's a matter of daily living.",
+      img: "./assets/Samson Agube.png",
     },
   ];
 
@@ -29,10 +29,10 @@ const Testimonials: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4">
         <div className="text-center mb-12 md:mb-16">
           <h4 className="text-brand-purple font-black tracking-[0.3em] text-[10px] uppercase mb-2">
-            Testimonials
+            Quotes
           </h4>
           <h2 className="text-3xl md:text-4xl font-black mb-4 uppercase tracking-tighter">
-            Your Hub, Your Stories
+            WORDS OF WISDOM FROM THE HUB
           </h2>
           <div className="w-12 h-1 bg-brand-gold mx-auto mb-4"></div>
           <p className="text-gray-400 text-xs italic">
@@ -94,7 +94,7 @@ const Testimonials: React.FC = () => {
                     {t.name}
                   </h4>
                   <p className="text-[10px] text-gray-400 uppercase tracking-[0.2em] font-bold mt-1">
-                    Life Group Member
+                    President, The Sonship Hub
                   </p>
                 </div>
               </div>

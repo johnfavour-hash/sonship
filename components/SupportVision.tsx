@@ -92,14 +92,14 @@ const SupportVision: React.FC = () => {
                  <div className="flex justify-between items-center pb-6 border-b border-gray-200">
                     <div>
                       <p className="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-1">Bank Name</p>
-                      <p className="text-lg font-bold text-gray-900">Access Bank PLC</p>
+                      <p className="text-lg font-bold text-gray-900">UBA</p>
                     </div>
                     <Landmark size={24} className="text-brand-purple opacity-20" />
                  </div>
                  <div className="flex justify-between items-center pb-6 border-b border-gray-200">
                     <div>
                       <p className="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-1">Account Number</p>
-                      <p className="text-3xl font-black text-brand-purple tracking-tighter">0123456789</p>
+                      <p className="text-3xl font-black text-brand-purple tracking-tighter">2309420569</p>
                     </div>
                     <button 
                       onClick={copyToClipboard}
@@ -110,7 +110,7 @@ const SupportVision: React.FC = () => {
                  </div>
                  <div>
                     <p className="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-1">Account Name</p>
-                    <p className="text-lg font-bold text-gray-900 uppercase">The Sonship Hub Global</p>
+                    <p className="text-lg font-bold text-gray-900 uppercase">Agube Samson</p>
                  </div>
               </div>
               <p className="mt-8 text-xs text-gray-400 italic text-center">Please use "VISION SUPPORT" as the transfer description.</p>

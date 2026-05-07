@@ -18,11 +18,11 @@ export const teamMembers: TeamMember[] = [
     img: "/assets/Samson Agube.png",
     bio: "Agube Samson serves as the President of The Sonship Hub, providing visionary leadership and strategic oversight for the organization. He is responsible for guiding the team, setting organizational priorities, and ensuring that all initiatives align with the Hub’s mission of transforming young men from ordinary to outstanding.\n\nHe holds a Bachelor’s degree in Computer Science from the University of Port Harcourt and brings expertise in software programming, data analytics, and digital technology. Beyond his technical skills, Agube is a multi-talented musical instrumentalist, which enhances his ability to creatively engage and inspire young men in the Hub’s programs.\n\nIn his role as President, he fosters a culture of discipline, excellence, and spiritual growth. Agube oversees program implementation, evaluates performance metrics, and collaborates closely with all executives to ensure the organization operates effectively and fulfills its vision. His leadership combines strategic thinking, technical proficiency, and creative insight, empowering The Sonship Hub to impact lives positively and raise a generation of purpose-driven and outstanding sons.",
   },
-  {
-    name: "MARK VICTOR",
-    role: "PA & SITE MANAGER",
-    img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=400",
-  },
+  // {
+  //   name: "MARK VICTOR",
+  //   role: "PA & SITE MANAGER",
+  //   img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=400",
+  // },
   {
     name: "ECHETA DAVID UZOROMA",
     role: "SECRETARY",
@@ -77,9 +77,5 @@ export const teamMembers: TeamMember[] = [
     img: "/assets/Chukwuere Emmanuel Chima.jpg",
     bio: "Chukwuere Emmanuel Chima serves as the Treasurer of The Sonship Hub, overseeing the organization’s financial resources, budgeting, and reporting. He ensures compliance with financial policies and provides strategic guidance on sustainable resource management to support the Hub’s mission and programs.\n\nHe holds a degree in Electrical and Electronics Engineering and brings additional expertise in web development and cloud engineering, enabling him to integrate technology-driven solutions for financial tracking, reporting, and operational efficiency.\n\nEmmanuel is committed to promoting transparency, accountability, and sound financial stewardship, ensuring that the Hub’s initiatives are well-supported and sustainable. His role strengthens the organization’s foundation while contributing to the development of outstanding young men through strategic resource management.",
   },
-  {
-    name: "TEESI VICTORY",
-    role: "AMBASSADOR & EVENT ORGANISER",
-    img: "/assets/Tesimi victory.jpeg",
-  },
+ 
 ];

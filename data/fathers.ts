@@ -6,16 +6,16 @@ export type Father = {
 };
 
 export const fathers: Father[] = [
-  {
-    name: "Pst. Engr. Imarhiagbe Henry",
-    role: "FAMILY LIFE COACH",
-    img: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=600",
-  },
-  {
-    name: "Pst. Engr. Uko Robson",
-    role: "LEADERSHIP & FINANCE COACH",
-    img: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=600",
-  },
+  // {
+  //   name: "Pst. Engr. Imarhiagbe Henry",
+  //   role: "FAMILY LIFE COACH",
+  //   img: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=600",
+  // },
+  // {
+  //   name: "Pst. Engr. Uko Robson",
+  //   role: "LEADERSHIP & FINANCE COACH",
+  //   img: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=600",
+  // },
   {
     name: "Pst. Prof. Chujor Jacob Chujor",
     role: "THERAPY & COUNSELLING COACH",
@@ -24,7 +24,7 @@ export const fathers: Father[] = [
   },
   {
     name: "Miebi Ofubu",
-    role: "CAREER COACH",
+    role: "CAREER, EXCELLENCE & LEADERSHIP COACH",
     img: "/assets/pastor Miebi.jpg",
     bio: "Miebi Ofubu is the Founder and Principal Transformation Partner of Legacy Impact Coaching Academy, a premier high-performance coaching institution dedicated to unlocking extraordinary potential and creating generational transformation. He is a Peak Performance Strategist, a Business Management Consultant, a Fellow of the Institute of Management Consultants, a Fellow of the Institute of Professional Entrepreneurs and Strategic Administration of Nigeria, a Certified Neuro-Life Coach, and a Certified Positive Parenting Coach.\n\nHis organization specializes in empowering four distinct yet interconnected client segments: business owners seeking exponential growth, professionals pursuing industry leadership, students striving for academic and personal excellence, and parents building stronger, peaceful and loving relationships with their teenage children.\n\nAs a keynote speaker and disruptor, Miebi helps industry leaders navigate and manage change in the marketplace. He serves as a Teacher, Mentor, and advisor to his generation. Miebi is married to Rita and blessed with two amazing children, Junia and Julius.",
   },

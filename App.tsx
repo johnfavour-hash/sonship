@@ -230,7 +230,7 @@ const HomePage: React.FC = () => {
       <Sponsors />
 
       {/* From The Blog */}
-      <section id="blog" className="py-16 md:py-24 bg-[#f9f9f9]">
+      {/* <section id="blog" className="py-16 md:py-24 bg-[#f9f9f9]">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-12 md:mb-16">
             <h4 className="text-brand-purple font-black tracking-widest text-[10px] uppercase mb-2">
@@ -276,7 +276,7 @@ const HomePage: React.FC = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       <div className="bg-[#1a1a1a] py-16">
         <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-10">
