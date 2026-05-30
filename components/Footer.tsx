@@ -19,13 +19,13 @@ const FB_POST_LINK_2 =
 
 const Footer: React.FC = () => {
   const footerGallery = [
-    // Use local optimized WebP thumbs to avoid broken external links and speed up footer load.
-    "/assets/gallery/pexels-shvetsa-3845458-480.webp",
-    "/assets/gallery/pexels-vanessa-loring-7869049-480.webp",
-    "/assets/gallery/pexels-green-odette-232224115-32197535-480.webp",
-    "/assets/gallery/pexels-a-r-shimanto-321946427-14509165-480.webp",
-    "/assets/gallery/pexels-case-originals-3420517-480.webp",
-    "/assets/gallery/pexels-julia-m-cameron-4144099-480.webp",
+    // Use local gallery photos so the footer references real source assets.
+    "/assets/gallery/PAM01724.jpg",
+    "/assets/gallery/PAM01731.jpg",
+    "/assets/gallery/PAM01738.jpg",
+    "/assets/gallery/PAM01744.jpg",
+    "/assets/gallery/PAM01840.jpg",
+    "/assets/gallery/PAM01985.jpg",
   ];
 
   const recentPosts = [

@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React, { useMemo, useEffect, useState } from "react";
 import {
   Routes,
   Route,
@@ -29,8 +29,8 @@ import { fathers } from "./data/fathers";
 type GallerySource = {
   alt: string;
   src: string;
-  srcSet: string;
-  sizes: string;
+  srcSet?: string;
+  sizes?: string;
 };
 
 function slugify(input: string): string {
@@ -45,103 +45,100 @@ function slugify(input: string): string {
 
 const HomePage: React.FC = () => {
   // Keep this to 12 images so the gallery renders as 2 rows on lg (6 columns).
-  // Use the optimized WebP variants with srcSet + sizes for faster loading.
+  // Reference actual local gallery photos from public/assets/gallery.
   const galleryImages: GallerySource[] = useMemo(
     () => [
       {
-        alt: "Gallery image",
-        src: "/assets/uaususii.jpeg",
-        srcSet: "/assets/uaususii.jpeg",
-        sizes: "(min-width: 1024px) 16.666vw, (min-width: 768px) 25vw, 50vw",
+        alt: "Gallery photo",
+        src: "/assets/gallery/PAM01724.jpg",
       },
       {
-        alt: "Gallery image",
-        src: "/assets/gallery/pexels-vanessa-loring-7869049-768.webp",
-        srcSet:
-          "/assets/gallery/pexels-vanessa-loring-7869049-480.webp 480w, /assets/gallery/pexels-vanessa-loring-7869049-768.webp 768w, /assets/gallery/pexels-vanessa-loring-7869049-1024.webp 1024w, /assets/gallery/pexels-vanessa-loring-7869049-1440.webp 1440w",
-        sizes: "(min-width: 1024px) 16.666vw, (min-width: 768px) 25vw, 50vw",
+        alt: "Gallery photo",
+        src: "/assets/gallery/PAM01725.jpg",
       },
       {
-        alt: "Gallery image",
-        src: "/assets/gallery/pexels-green-odette-232224115-32197535-768.webp",
-        srcSet:
-          "/assets/gallery/pexels-green-odette-232224115-32197535-480.webp 480w, /assets/gallery/pexels-green-odette-232224115-32197535-768.webp 768w, /assets/gallery/pexels-green-odette-232224115-32197535-1024.webp 1024w, /assets/gallery/pexels-green-odette-232224115-32197535-1440.webp 1440w",
-        sizes: "(min-width: 1024px) 16.666vw, (min-width: 768px) 25vw, 50vw",
+        alt: "Gallery photo",
+        src: "/assets/gallery/PAM01726.jpg",
       },
       {
-        alt: "Gallery image",
-        src: "/assets/gallery/pexels-a-r-shimanto-321946427-14509165-768.webp",
-        srcSet:
-          "/assets/gallery/pexels-a-r-shimanto-321946427-14509165-480.webp 480w, /assets/gallery/pexels-a-r-shimanto-321946427-14509165-768.webp 768w, /assets/gallery/pexels-a-r-shimanto-321946427-14509165-1024.webp 1024w, /assets/gallery/pexels-a-r-shimanto-321946427-14509165-1440.webp 1440w",
-        sizes: "(min-width: 1024px) 16.666vw, (min-width: 768px) 25vw, 50vw",
+        alt: "Gallery photo",
+        src: "/assets/gallery/PAM01730.jpg",
       },
       {
-        alt: "Gallery image",
-        src: "/assets/gallery/pexels-case-originals-3420517-768.webp",
-        srcSet:
-          "/assets/gallery/pexels-case-originals-3420517-480.webp 480w, /assets/gallery/pexels-case-originals-3420517-768.webp 768w, /assets/gallery/pexels-case-originals-3420517-1024.webp 1024w, /assets/gallery/pexels-case-originals-3420517-1440.webp 1440w",
-        sizes: "(min-width: 1024px) 16.666vw, (min-width: 768px) 25vw, 50vw",
+        alt: "Gallery photo",
+        src: "/assets/gallery/PAM01731.jpg",
       },
       {
-        alt: "Gallery image",
-        src: "/assets/gallery/pexels-julia-m-cameron-4144099-768.webp",
-        srcSet:
-          "/assets/gallery/pexels-julia-m-cameron-4144099-480.webp 480w, /assets/gallery/pexels-julia-m-cameron-4144099-768.webp 768w, /assets/gallery/pexels-julia-m-cameron-4144099-1024.webp 1024w, /assets/gallery/pexels-julia-m-cameron-4144099-1440.webp 1440w",
-        sizes: "(min-width: 1024px) 16.666vw, (min-width: 768px) 25vw, 50vw",
+        alt: "Gallery photo",
+        src: "/assets/gallery/PAM01732.jpg",
       },
       {
-        alt: "Gallery image",
-        src: "/assets/gallery/pexels-rdne-8500422-768.webp",
-        srcSet:
-          "/assets/gallery/pexels-rdne-8500422-480.webp 480w, /assets/gallery/pexels-rdne-8500422-768.webp 768w, /assets/gallery/pexels-rdne-8500422-1024.webp 1024w, /assets/gallery/pexels-rdne-8500422-1440.webp 1440w",
-        sizes: "(min-width: 1024px) 16.666vw, (min-width: 768px) 25vw, 50vw",
+        alt: "Gallery photo",
+        src: "/assets/gallery/PAM01734.jpg",
       },
       {
-        alt: "Gallery image",
-        src: "/assets/gallery/pexels-ron-lach-10643471-768.webp",
-        srcSet:
-          "/assets/gallery/pexels-ron-lach-10643471-480.webp 480w, /assets/gallery/pexels-ron-lach-10643471-768.webp 768w, /assets/gallery/pexels-ron-lach-10643471-1024.webp 1024w, /assets/gallery/pexels-ron-lach-10643471-1440.webp 1440w",
-        sizes: "(min-width: 1024px) 16.666vw, (min-width: 768px) 25vw, 50vw",
+        alt: "Gallery photo",
+        src: "/assets/gallery/PAM01738.jpg",
       },
       {
-        alt: "Gallery image",
-        src: "/assets/gallery/pexels-saulo-leite-1491182-27254260-768.webp",
-        srcSet:
-          "/assets/gallery/pexels-saulo-leite-1491182-27254260-480.webp 480w, /assets/gallery/pexels-saulo-leite-1491182-27254260-768.webp 768w, /assets/gallery/pexels-saulo-leite-1491182-27254260-1024.webp 1024w, /assets/gallery/pexels-saulo-leite-1491182-27254260-1440.webp 1440w",
-        sizes: "(min-width: 1024px) 16.666vw, (min-width: 768px) 25vw, 50vw",
+        alt: "Gallery photo",
+        src: "/assets/gallery/PAM01740.jpg",
       },
       {
-        alt: "Gallery image",
-        src: "/assets/gallery/pexels-timur-weber-9127034-768.webp",
-        srcSet:
-          "/assets/gallery/pexels-timur-weber-9127034-480.webp 480w, /assets/gallery/pexels-timur-weber-9127034-768.webp 768w, /assets/gallery/pexels-timur-weber-9127034-1024.webp 1024w, /assets/gallery/pexels-timur-weber-9127034-1440.webp 1440w",
-        sizes: "(min-width: 1024px) 16.666vw, (min-width: 768px) 25vw, 50vw",
+        alt: "Gallery photo",
+        src: "/assets/gallery/PAM01743.jpg",
       },
       {
-        alt: "Gallery image",
-        src: "/assets/gallery/pexels-timur-weber-9127048-768.webp",
-        srcSet:
-          "/assets/gallery/pexels-timur-weber-9127048-480.webp 480w, /assets/gallery/pexels-timur-weber-9127048-768.webp 768w, /assets/gallery/pexels-timur-weber-9127048-1024.webp 1024w, /assets/gallery/pexels-timur-weber-9127048-1440.webp 1440w",
-        sizes: "(min-width: 1024px) 16.666vw, (min-width: 768px) 25vw, 50vw",
+        alt: "Gallery photo",
+        src: "/assets/gallery/PAM01744.jpg",
       },
       {
-        alt: "Gallery image",
-        src: "/assets/gallery/pexels-mohammed-17746214-768.webp",
-        srcSet:
-          "/assets/gallery/pexels-mohammed-17746214-480.webp 480w, /assets/gallery/pexels-mohammed-17746214-768.webp 768w, /assets/gallery/pexels-mohammed-17746214-1024.webp 1024w, /assets/gallery/pexels-mohammed-17746214-1440.webp 1440w",
-        sizes: "(min-width: 1024px) 16.666vw, (min-width: 768px) 25vw, 50vw",
+        alt: "Gallery photo",
+        src: "/assets/gallery/PAM01745.jpg",
       },
     ],
     [],
   );
 
   const navigate = useNavigate();
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
   const handleMemberSelect = (member: TeamMember) => {
     const slug = slugify(member.name);
     navigate(`/team/${slug}`);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
+
+  const closeLightbox = () => setLightboxIndex(null);
+  const showPreviousImage = () => {
+    if (lightboxIndex === null) return;
+    setLightboxIndex(
+      (lightboxIndex - 1 + galleryImages.length) % galleryImages.length,
+    );
+  };
+  const showNextImage = () => {
+    if (lightboxIndex === null) return;
+    setLightboxIndex((lightboxIndex + 1) % galleryImages.length);
+  };
+
+  useEffect(() => {
+    if (lightboxIndex === null) return;
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        closeLightbox();
+      }
+      if (event.key === "ArrowLeft") {
+        showPreviousImage();
+      }
+      if (event.key === "ArrowRight") {
+        showNextImage();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [lightboxIndex, galleryImages.length]);
 
   return (
     <>
@@ -204,7 +201,12 @@ const HomePage: React.FC = () => {
         </div>
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 h-[320px] md:h-[360px] lg:h-[420px]">
           {galleryImages.map((img, i) => (
-            <div key={i} className="relative group overflow-hidden">
+            <button
+              key={i}
+              type="button"
+              onClick={() => setLightboxIndex(i)}
+              className="relative group overflow-hidden focus:outline-none"
+            >
               <img
                 src={img.src}
                 srcSet={img.srcSet}
@@ -219,9 +221,71 @@ const HomePage: React.FC = () => {
                   +
                 </span>
               </div>
-            </div>
+            </button>
           ))}
         </div>
+
+        {lightboxIndex !== null && (
+          <div
+            className="fixed inset-0 z-[90] flex items-center justify-center bg-black/80 p-4"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Gallery lightbox"
+            onClick={closeLightbox}
+          >
+            <div
+              className="relative max-w-[90vw] max-h-[90vh] w-full flex flex-col"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                type="button"
+                onClick={closeLightbox}
+                className="absolute top-4 right-4 z-20 bg-black/60 text-white rounded-full p-3 hover:bg-black"
+                aria-label="Close gallery"
+              >
+                ×
+              </button>
+
+              <img
+                src={galleryImages[lightboxIndex].src}
+                srcSet={galleryImages[lightboxIndex].srcSet}
+                sizes="100vw"
+                className="w-full h-[calc(90vh-96px)] object-contain rounded-3xl bg-black"
+                alt={galleryImages[lightboxIndex].alt}
+              />
+
+              <div className="absolute inset-x-0 top-1/2 flex items-center justify-between px-2 pointer-events-none">
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    showPreviousImage();
+                  }}
+                  className="pointer-events-auto bg-black/60 text-white p-3 rounded-full hover:bg-black transition"
+                  aria-label="Previous image"
+                >
+                  ‹
+                </button>
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    showNextImage();
+                  }}
+                  className="pointer-events-auto bg-black/60 text-white p-3 rounded-full hover:bg-black transition"
+                  aria-label="Next image"
+                >
+                  ›
+                </button>
+              </div>
+
+              <div className="mt-4 flex items-center justify-between text-white text-[11px] uppercase tracking-[0.2em]">
+                <span>{`${lightboxIndex + 1} / ${galleryImages.length}`}</span>
+                <span className="text-right text-white/80">Moments of Faith</span>
+              </div>
+            </div>
+          </div>
+        )}
       </section>
 
       <Team onMemberSelect={handleMemberSelect} />

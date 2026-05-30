@@ -7,44 +7,44 @@ const Hero: React.FC = () => {
 
   const slides = [
     {
-      url: "/assets/pexels-mgshotz-16374182.jpg",
-      alt: "Sonship Hub Graduation",
+      url: "/assets/gallery/PAM01808.jpg",
+      alt: "Sonship Hub Victory Celebration",
     },
     {
-      url: "/assets/pexels-shvetsa-3845458.jpg",
-      alt: "Sonship Hub Fellowship",
+      url: "/assets/gallery/PAM01824.jpg",
+      alt: "Sonship Hub Dynamic Gathering",
     },
     {
-      url: "/assets/pexels-mohammed-17746214.jpg",
-      alt: "Sonship Hub Leadership",
+      url: "/assets/gallery/PAM01830.jpg",
+      alt: "Sonship Hub Joyful Praise",
     },
     {
-      url: "/assets/pexels-timur-weber-9127034.jpg",
-      alt: "Sonship Hub Worship",
+      url: "/assets/gallery/PAM01836.jpg",
+      alt: "Sonship Hub United in Worship",
     },
     {
-      url: "/assets/pexels-case-originals-3420517.jpg",
-      alt: "Sonship Hub Growth",
+      url: "/assets/gallery/PAM01838.jpg",
+      alt: "Sonship Hub Life Transformation",
     },
     {
-      url: "/assets/pexels-green-odette-232224115-32197535.jpg",
-      alt: "Sonship Hub Mentorship",
+      url: "/assets/gallery/PAM01840.jpg",
+      alt: "Sonship Hub Celebration Moment",
     },
     {
-      url: "/assets/pexels-a-r-shimanto-321946427-14509165.jpg",
-      alt: "Sonship Hub Service",
+      url: "/assets/gallery/PAM01843.jpg",
+      alt: "Sonship Hub Faith Community",
     },
     {
-      url: "/assets/pexels-rdne-8500422.jpg",
-      alt: "Sonship Hub Discipleship",
+      url: "/assets/gallery/PAM01844.jpg",
+      alt: "Sonship Hub Bold Believers",
     },
     {
-      url: "/assets/pexels-ron-lach-10643471.jpg",
-      alt: "Sonship Hub Brotherhood",
+      url: "/assets/gallery/PAM01845.jpg",
+      alt: "Sonship Hub Vibrant Worship",
     },
     {
-      url: "/assets/pexels-saulo-leite-1491182-27254260.jpg",
-      alt: "Sonship Hub Outreach",
+      url: "/assets/gallery/PAM01846.jpg",
+      alt: "Sonship Hub Transformative Gathering",
     },
   ];
 
