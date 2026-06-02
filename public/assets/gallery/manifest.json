@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2025-12-22T19:46:43.268Z",
+  "generatedAt": "2026-06-02T17:22:14.922Z",
   "inputDir": "public/assets",
   "outputDir": "public/assets/gallery",
   "widths": [
@@ -10,6 +10,162 @@
   ],
   "webpQuality": 78,
   "files": [
+    {
+      "source": "ONYEADI DIRICHUKWU JOHN.jpeg",
+      "outputs": [
+        {
+          "width": 480,
+          "filename": "onyeadi-dirichukwu-john-480.webp"
+        },
+        {
+          "width": 744,
+          "filename": "onyeadi-dirichukwu-john-744.webp"
+        },
+        {
+          "width": 744,
+          "filename": "onyeadi-dirichukwu-john-744.webp"
+        },
+        {
+          "width": 744,
+          "filename": "onyeadi-dirichukwu-john-744.webp"
+        }
+      ],
+      "original": {
+        "width": 744,
+        "height": 992,
+        "format": "jpeg"
+      }
+    },
+    {
+      "source": "Orange Minimalist Motivational Quote Twitter Post (4).png",
+      "outputs": [
+        {
+          "width": 480,
+          "filename": "orange-minimalist-motivational-quote-twitter-post-4-480.webp"
+        },
+        {
+          "width": 768,
+          "filename": "orange-minimalist-motivational-quote-twitter-post-4-768.webp"
+        },
+        {
+          "width": 1024,
+          "filename": "orange-minimalist-motivational-quote-twitter-post-4-1024.webp"
+        },
+        {
+          "width": 1440,
+          "filename": "orange-minimalist-motivational-quote-twitter-post-4-1440.webp"
+        }
+      ],
+      "original": {
+        "width": 1600,
+        "height": 900,
+        "format": "png"
+      }
+    },
+    {
+      "source": "Orange Minimalist Motivational Quote Twitter Post (5).png",
+      "outputs": [
+        {
+          "width": 480,
+          "filename": "orange-minimalist-motivational-quote-twitter-post-5-480.webp"
+        },
+        {
+          "width": 768,
+          "filename": "orange-minimalist-motivational-quote-twitter-post-5-768.webp"
+        },
+        {
+          "width": 1024,
+          "filename": "orange-minimalist-motivational-quote-twitter-post-5-1024.webp"
+        },
+        {
+          "width": 1440,
+          "filename": "orange-minimalist-motivational-quote-twitter-post-5-1440.webp"
+        }
+      ],
+      "original": {
+        "width": 1600,
+        "height": 900,
+        "format": "png"
+      }
+    },
+    {
+      "source": "Orange Minimalist Motivational Quote Twitter Post (6).png",
+      "outputs": [
+        {
+          "width": 480,
+          "filename": "orange-minimalist-motivational-quote-twitter-post-6-480.webp"
+        },
+        {
+          "width": 768,
+          "filename": "orange-minimalist-motivational-quote-twitter-post-6-768.webp"
+        },
+        {
+          "width": 1024,
+          "filename": "orange-minimalist-motivational-quote-twitter-post-6-1024.webp"
+        },
+        {
+          "width": 1440,
+          "filename": "orange-minimalist-motivational-quote-twitter-post-6-1440.webp"
+        }
+      ],
+      "original": {
+        "width": 1600,
+        "height": 900,
+        "format": "png"
+      }
+    },
+    {
+      "source": "past. prof. chujor.jpeg",
+      "outputs": [
+        {
+          "width": 480,
+          "filename": "past-prof-chujor-480.webp"
+        },
+        {
+          "width": 768,
+          "filename": "past-prof-chujor-768.webp"
+        },
+        {
+          "width": 1024,
+          "filename": "past-prof-chujor-1024.webp"
+        },
+        {
+          "width": 1080,
+          "filename": "past-prof-chujor-1080.webp"
+        }
+      ],
+      "original": {
+        "width": 1080,
+        "height": 1080,
+        "format": "jpeg"
+      }
+    },
+    {
+      "source": "pastor Miebi.jpg",
+      "outputs": [
+        {
+          "width": 480,
+          "filename": "pastor-miebi-480.webp"
+        },
+        {
+          "width": 747,
+          "filename": "pastor-miebi-747.webp"
+        },
+        {
+          "width": 747,
+          "filename": "pastor-miebi-747.webp"
+        },
+        {
+          "width": 747,
+          "filename": "pastor-miebi-747.webp"
+        }
+      ],
+      "original": {
+        "width": 747,
+        "height": 1024,
+        "format": "jpeg"
+      }
+    },
     {
       "source": "pexels-a-r-shimanto-321946427-14509165.jpg",
       "outputs": [
@@ -397,6 +553,58 @@
       "original": {
         "width": 6720,
         "height": 4480,
+        "format": "jpeg"
+      }
+    },
+    {
+      "source": "Tesimi victory.jpeg",
+      "outputs": [
+        {
+          "width": 480,
+          "filename": "tesimi-victory-480.webp"
+        },
+        {
+          "width": 744,
+          "filename": "tesimi-victory-744.webp"
+        },
+        {
+          "width": 744,
+          "filename": "tesimi-victory-744.webp"
+        },
+        {
+          "width": 744,
+          "filename": "tesimi-victory-744.webp"
+        }
+      ],
+      "original": {
+        "width": 744,
+        "height": 992,
+        "format": "jpeg"
+      }
+    },
+    {
+      "source": "uaususii.jpeg",
+      "outputs": [
+        {
+          "width": 480,
+          "filename": "uaususii-480.webp"
+        },
+        {
+          "width": 768,
+          "filename": "uaususii-768.webp"
+        },
+        {
+          "width": 992,
+          "filename": "uaususii-992.webp"
+        },
+        {
+          "width": 992,
+          "filename": "uaususii-992.webp"
+        }
+      ],
+      "original": {
+        "width": 992,
+        "height": 744,
         "format": "jpeg"
       }
     }

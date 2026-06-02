@@ -45,60 +45,106 @@ function slugify(input: string): string {
 
 const HomePage: React.FC = () => {
   // Keep this to 12 images so the gallery renders as 2 rows on lg (6 columns).
-  // Reference actual local gallery photos from public/assets/gallery.
-  const galleryImages: GallerySource[] = useMemo(
-    () => [
-      {
-        alt: "Gallery photo",
-        src: "/assets/gallery/PAM01724.jpg",
-      },
-      {
-        alt: "Gallery photo",
-        src: "/assets/gallery/PAM01725.jpg",
-      },
-      {
-        alt: "Gallery photo",
-        src: "/assets/gallery/PAM01726.jpg",
-      },
-      {
-        alt: "Gallery photo",
-        src: "/assets/gallery/PAM01730.jpg",
-      },
-      {
-        alt: "Gallery photo",
-        src: "/assets/gallery/PAM01731.jpg",
-      },
-      {
-        alt: "Gallery photo",
-        src: "/assets/gallery/PAM01732.jpg",
-      },
-      {
-        alt: "Gallery photo",
-        src: "/assets/gallery/PAM01734.jpg",
-      },
-      {
-        alt: "Gallery photo",
-        src: "/assets/gallery/PAM01738.jpg",
-      },
-      {
-        alt: "Gallery photo",
-        src: "/assets/gallery/PAM01740.jpg",
-      },
-      {
-        alt: "Gallery photo",
-        src: "/assets/gallery/PAM01743.jpg",
-      },
-      {
-        alt: "Gallery photo",
-        src: "/assets/gallery/PAM01744.jpg",
-      },
-      {
-        alt: "Gallery photo",
-        src: "/assets/gallery/PAM01745.jpg",
-      },
-    ],
-    [],
-  );
+  // Try to use optimized WebP outputs from public/assets/gallery/manifest.json when available.
+  const [galleryImages, setGalleryImages] = useState<GallerySource[]>([
+    { alt: "Gallery photo", src: "/assets/gallery/PAM01724.jpg" },
+    { alt: "Gallery photo", src: "/assets/gallery/PAM01725.jpg" },
+    { alt: "Gallery photo", src: "/assets/gallery/PAM01726.jpg" },
+    { alt: "Gallery photo", src: "/assets/gallery/PAM01730.jpg" },
+    { alt: "Gallery photo", src: "/assets/gallery/PAM01731.jpg" },
+    { alt: "Gallery photo", src: "/assets/gallery/PAM01732.jpg" },
+    { alt: "Gallery photo", src: "/assets/gallery/PAM01734.jpg" },
+    { alt: "Gallery photo", src: "/assets/gallery/PAM01738.jpg" },
+    { alt: "Gallery photo", src: "/assets/gallery/PAM01740.jpg" },
+    { alt: "Gallery photo", src: "/assets/gallery/PAM01743.jpg" },
+    { alt: "Gallery photo", src: "/assets/gallery/PAM01744.jpg" },
+    { alt: "Gallery photo", src: "/assets/gallery/PAM01745.jpg" },
+  ]);
+  const [indexUsed, setIndexUsed] = useState(false);
+
+  useEffect(() => {
+    let cancelled = false;
+
+     async function loadIndex() {
+       try {
+         const res = await fetch("/assets/gallery/index.json", { cache: "no-cache" });
+         if (!res.ok) return;
+         const list = await res.json();
+         if (!Array.isArray(list) || list.length === 0) return;
+        // Shuffle the list so the gallery is randomized on each load
+        const shuffled = list.slice().sort(() => Math.random() - 0.5);
+        // Use all PAM images for the gallery
+        const images: GallerySource[] = shuffled.map((src: string) => ({ alt: "Gallery photo", src }));
+         if (!cancelled) {
+           setGalleryImages(images);
+           setIndexUsed(true);
+         }
+       } catch (err) {
+         // ignore
+       }
+     }
+
+     async function loadManifest() {
+      try {
+        if (indexUsed) return; // index.json already selected; prefer it
+        const res = await fetch("/assets/gallery/manifest.json", { cache: "no-cache" });
+        if (!res.ok) return;
+        const manifest = await res.json();
+        if (!manifest?.files || !Array.isArray(manifest.files)) return;
+
+        const filtered = manifest.files.filter((f: any) => typeof f.source === "string" ? !/pexels/i.test(f.source) : true);
+        const images: GallerySource[] = filtered.slice(0, 12).map((f: any) => {
+          const outputs = Array.isArray(f.outputs) ? f.outputs : [];
+          // prefer a mid/large size for the primary src (1024 then 1440 then last)
+          const primary = outputs.find((o: any) => o.width === 1024) ?? outputs.find((o: any) => o.width === 1440) ?? outputs[outputs.length - 1];
+          const src = primary ? `/assets/gallery/${primary.filename}` : `/assets/${f.source}`;
+          const srcSet = outputs.map((o: any) => `/assets/gallery/${o.filename} ${o.width}w`).join(", ");
+          const sizes = "(max-width: 768px) 100vw, 50vw";
+
+          return { alt: f.source ?? "Gallery photo", src, srcSet, sizes } as GallerySource;
+        });
+
+        // Only replace defaults if manifest actually contains files coming from the gallery (PAM*)
+        const hasPAM = images.some((img) => /PAM\d+/i.test(img.src) || /PAM\d+/i.test(img.alt || ""));
+        if (!cancelled && images.length > 0 && hasPAM) setGalleryImages(images);
+      } catch (err) {
+        // ignore and keep defaults
+      }
+    }
+
+     loadIndex().then(() => loadManifest());
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  // Debug: log when gallery images change so you can inspect in the browser console
+  useEffect(() => {
+    try {
+      // eslint-disable-next-line no-console
+      console.log("[debug] galleryImages count:", galleryImages.length, "sample:", galleryImages.slice(0, 6).map((g) => g.src));
+    } catch (e) {
+      // ignore
+    }
+  }, [galleryImages]);
+
+  const marqueeRows = [
+    {
+      images: galleryImages.map((image, index) => ({ ...image, index })),
+      reverse: false,
+      duration: 40,
+    },
+    {
+      images: galleryImages.map((image, index) => ({ ...image, index })),
+      reverse: true,
+      duration: 36,
+    },
+    {
+      images: galleryImages.map((image, index) => ({ ...image, index })),
+      reverse: false,
+      duration: 44,
+    },
+  ];
 
   const navigate = useNavigate();
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
@@ -190,38 +236,45 @@ const HomePage: React.FC = () => {
       <Testimonials />
 
       {/* Our Gallery */}
-      <section className="py-0" id="gallery">
-        <div className="text-center mb-8 md:mb-12 px-4">
+      <section className="py-10 md:py-16" id="gallery">
+        <div className="text-center max-w-3xl mx-auto mb-10 md:mb-14 px-4">
           <h4 className="text-brand-purple font-black tracking-widest text-[10px] uppercase mb-2">
             Moments of Faith
           </h4>
-          <p className="text-gray-400 text-xs italic">
+          <p className="text-gray-400 text-sm italic">
             Capturing the life of our global community.
           </p>
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 h-[320px] md:h-[360px] lg:h-[420px]">
-          {galleryImages.map((img, i) => (
-            <button
-              key={i}
-              type="button"
-              onClick={() => setLightboxIndex(i)}
-              className="relative group overflow-hidden focus:outline-none"
+
+        <div className="space-y-5 px-4">
+          {marqueeRows.map((row, rowIndex) => (
+            <div
+              key={rowIndex}
+              className={`overflow-hidden rounded-[2rem] border border-gray-100 shadow-2xl ${row.reverse ? "bg-gray-50" : "bg-white"} h-[240px] sm:h-[280px] md:h-[320px]`}
             >
-              <img
-                src={img.src}
-                srcSet={img.srcSet}
-                sizes={img.sizes}
-                loading={i < 2 ? "eager" : "lazy"}
-                decoding="async"
-                className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 brightness-110 contrast-105"
-                alt={img.alt}
-              />
-              <div className="absolute inset-0 bg-brand-purple/25 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-[1px]">
-                <span className="text-white text-3xl md:text-4xl font-thin">
-                  +
-                </span>
+              <div
+                className={`marquee-track ${row.reverse ? "marquee-right" : "marquee-left"}`}
+                style={{ animationDuration: `${row.duration}s` }}
+              >
+                {[...row.images, ...row.images].map((img, itemIndex) => (
+                  <button
+                    key={`${rowIndex}-${itemIndex}`}
+                    type="button"
+                    onClick={() => setLightboxIndex(img.index)}
+                    className="marquee-item h-full min-w-[240px] sm:min-w-[280px] md:min-w-[320px] overflow-hidden rounded-[1.5rem] border border-white/60 shadow-sm focus:outline-none"
+                  >
+                    <img
+                      src={img.src}
+                      srcSet={img.srcSet}
+                      sizes={img.sizes}
+                      loading={itemIndex < 3 ? "eager" : "lazy"}
+                      decoding="async"
+                      alt={img.alt}
+                    />
+                  </button>
+                ))}
               </div>
-            </button>
+            </div>
           ))}
         </div>
 
