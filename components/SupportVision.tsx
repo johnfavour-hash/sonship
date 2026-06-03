@@ -19,7 +19,7 @@ const SupportVision: React.FC = () => {
             <Heart size={14} className="text-brand-purple fill-brand-purple" />
             <span className="text-[10px] font-black text-brand-purple uppercase tracking-widest">Supporting the Vision</span>
          </div>
-         <h1 className="text-4xl md:text-6xl font-black text-gray-900 mb-6 uppercase tracking-tighter">Invest in the Kingdom</h1>
+         <h1 className="text-4xl md:text-6xl font-black text-gray-900 mb-6 uppercase tracking-tighter">Invest in the Hub</h1>
          <p className="text-gray-500 text-lg max-w-2xl mx-auto italic">"Every man according as he purposeth in his heart, so let him give; not grudgingly, or of necessity: for God loveth a cheerful giver." — 2 Cor 9:7</p>
       </div>
 

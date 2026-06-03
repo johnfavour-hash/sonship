@@ -51,12 +51,12 @@ const Auth: React.FC<AuthProps> = ({ initialMode, onViewChange }) => {
           </div>
           <div className="space-y-4">
             <div className="flex items-center space-x-3 text-xs font-bold uppercase tracking-widest text-brand-gold">
-              <Check size={16} />
-              <span>Personalized Devotionals</span>
+              
+              
             </div>
             <div className="flex items-center space-x-3 text-xs font-bold uppercase tracking-widest text-brand-gold">
-              <Check size={16} />
-              <span>Event Early Access</span>
+              
+              
             </div>
           </div>
         </div>

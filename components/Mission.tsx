@@ -42,7 +42,7 @@ const Mission: React.FC = () => {
         </div>
 
         {/* Pillars Grid - Responsive stacking */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-0 rounded-2xl md:rounded-3xl overflow-hidden shadow-xl md:shadow-2xl mb-16 md:mb-24">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-0  overflow-hidden   mb-16 md:mb-24">
           {pillars.map((pillar, idx) => (
             <div
               key={idx}
@@ -68,7 +68,7 @@ const Mission: React.FC = () => {
         </div>
 
         {/* Target Audience Featured Section */}
-        <div className="bg-white rounded-2xl md:rounded-[2rem] overflow-hidden shadow-xl flex flex-col lg:flex-row items-stretch border border-gray-100">
+        <div className="bg-white   overflow-hidden  flex flex-col lg:flex-row items-stretch border border-gray-100">
           <div className="lg:w-1/2 relative min-h-[300px] md:min-h-[400px]">
             <OptimizedImage
               src="/assets/gallery/PAM02227.jpg"  
@@ -77,13 +77,13 @@ const Mission: React.FC = () => {
               loading="eager"
             />
             <div className="absolute inset-0 bg-brand-purple/20 mix-blend-multiply"></div>
-            <div className="absolute top-6 left-6 md:top-8 md:left-8 bg-brand-gold text-brand-purple font-black text-[9px] md:text-[10px] tracking-widest uppercase px-4 md:px-6 py-2 rounded-full shadow-lg">
+            <div className="absolute top-6 left-6 md:top-8 md:left-8 bg-brand-gold text-brand-purple font-black text-[9px] md:text-[10px] tracking-widest uppercase px-4 md:px-6 py-2 ">
               All Males Welcome
             </div>
           </div>
           <div className="lg:w-1/2 p-10 md:p-16 flex flex-col justify-center">
             <div className="flex items-center space-x-4 mb-6">
-              <div className="w-10 h-10 md:w-12 md:h-12 bg-brand-purple rounded-xl flex items-center justify-center shadow-lg">
+              <div className="w-10 h-10 md:w-12 md:h-12 bg-brand-purple  flex items-center justify-center ">
                 <Users className="text-brand-gold" size={20} />
               </div>
               <h3 className="text-xl md:text-2xl font-black text-brand-purple uppercase tracking-tight">
