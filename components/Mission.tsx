@@ -1,5 +1,6 @@
 import React from "react";
 import { Eye, Target, Shield, Users } from "lucide-react";
+import { OptimizedImage } from "./OptimizedImage";
 
 const Mission: React.FC = () => {
   const pillars = [
@@ -69,10 +70,11 @@ const Mission: React.FC = () => {
         {/* Target Audience Featured Section */}
         <div className="bg-white rounded-2xl md:rounded-[2rem] overflow-hidden shadow-xl flex flex-col lg:flex-row items-stretch border border-gray-100">
           <div className="lg:w-1/2 relative min-h-[300px] md:min-h-[400px]">
-            <img
-              src="/assets/gallery/PAM02228.jpg"
+            <OptimizedImage
+              src="/assets/gallery/pam01724"
               alt="Young Men Brotherhood"
               className="absolute inset-0 w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000"
+              loading="eager"
             />
             <div className="absolute inset-0 bg-brand-purple/20 mix-blend-multiply"></div>
             <div className="absolute top-6 left-6 md:top-8 md:left-8 bg-brand-gold text-brand-purple font-black text-[9px] md:text-[10px] tracking-widest uppercase px-4 md:px-6 py-2 rounded-full shadow-lg">
