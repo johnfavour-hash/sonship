@@ -8,43 +8,43 @@ const Hero: React.FC = () => {
 
   const slides = [
     {
-      url: "/assets/gallery/PAM01808",
+      url: "/assets/gallery/pam01724",
       alt: "Sonship Hub Victory Celebration",
     },
     {
-      url: "/assets/gallery/PAM01824",
+      url: "/assets/gallery/pam01725",
       alt: "Sonship Hub Dynamic Gathering",
     },
     {
-      url: "/assets/gallery/PAM01830",
+      url: "/assets/gallery/pam01730",
       alt: "Sonship Hub Joyful Praise",
     },
     {
-      url: "/assets/gallery/PAM01836",
+      url: "/assets/gallery/pam01731",
       alt: "Sonship Hub United in Worship",
     },
     {
-      url: "/assets/gallery/PAM01838",
+      url: "/assets/gallery/pam01732",
       alt: "Sonship Hub Life Transformation",
     },
     {
-      url: "/assets/gallery/PAM01840",
+      url: "/assets/gallery/pam01738",
       alt: "Sonship Hub Celebration Moment",
     },
     {
-      url: "/assets/gallery/PAM01843",
+      url: "/assets/gallery/pam01740",
       alt: "Sonship Hub Faith Community",
     },
     {
-      url: "/assets/gallery/PAM01844",
+      url: "/assets/gallery/pam01743",
       alt: "Sonship Hub Bold Believers",
     },
     {
-      url: "/assets/gallery/PAM01845",
+      url: "/assets/gallery/pam01744",
       alt: "Sonship Hub Vibrant Worship",
     },
     {
-      url: "/assets/gallery/PAM01846",
+      url: "/assets/gallery/pam01745",
       alt: "Sonship Hub Transformative Gathering",
     },
   ];

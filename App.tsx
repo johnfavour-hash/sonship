@@ -73,8 +73,15 @@ const HomePage: React.FC = () => {
          if (!Array.isArray(list) || list.length === 0) return;
         // Shuffle the list so the gallery is randomized on each load
         const shuffled = list.slice().sort(() => Math.random() - 0.5);
-        // Use all PAM images for the gallery
-        const images: GallerySource[] = shuffled.map((src: string) => ({ alt: "Gallery photo", src }));
+        // Use all PAM images for the gallery with responsive srcSet
+        const images: GallerySource[] = shuffled.map((src: string) => {
+          // Extract base image name without size suffix
+          const baseSrc = src.replace(/-480\.webp$/, '');
+          // Generate responsive srcSet
+          const srcSet = `${baseSrc}-480.webp 480w, ${baseSrc}-768.webp 768w, ${baseSrc}-1024.webp 1024w, ${baseSrc}-1440.webp 1440w`;
+          const sizes = "(max-width: 768px) 100vw, 50vw";
+          return { alt: "Gallery photo", src, srcSet, sizes };
+        });
          if (!cancelled) {
            setGalleryImages(images);
            setIndexUsed(true);
