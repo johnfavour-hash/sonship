@@ -72,16 +72,12 @@ const HomePage: React.FC = () => {
          const list = await res.json();
          if (!Array.isArray(list) || list.length === 0) return;
         // Shuffle the list so the gallery is randomized on each load
-        const shuffled = list.slice().sort(() => Math.random() - 0.5);
-        // Use all PAM images for the gallery with responsive srcSet
-        const images: GallerySource[] = shuffled.map((src: string) => {
-          // Extract base image name without size suffix
-          const baseSrc = src.replace(/-480\.webp$/, '');
-          // Generate responsive srcSet
-          const srcSet = `${baseSrc}-480.webp 480w, ${baseSrc}-768.webp 768w, ${baseSrc}-1024.webp 1024w, ${baseSrc}-1440.webp 1440w`;
-          const sizes = "(max-width: 768px) 100vw, 50vw";
-          return { alt: "Gallery photo", src, srcSet, sizes };
-        });
+        // Prefer PAM images only; fall back to full list if none present
+        const pamOnly = list.filter((s: string) => /pam/i.test(s));
+        const sourceList = pamOnly.length > 0 ? pamOnly : list;
+        const shuffled = sourceList.slice().sort(() => Math.random() - 0.5);
+        // Use the selected list for the gallery
+        const images: GallerySource[] = shuffled.map((src: string) => ({ alt: "Gallery photo", src }));
          if (!cancelled) {
            setGalleryImages(images);
            setIndexUsed(true);
@@ -99,7 +95,13 @@ const HomePage: React.FC = () => {
         const manifest = await res.json();
         if (!manifest?.files || !Array.isArray(manifest.files)) return;
 
-        const filtered = manifest.files.filter((f: any) => typeof f.source === "string" ? !/pexels/i.test(f.source) : true);
+        // Only include PAM-sourced images from the manifest (exclude Pexels and others)
+        const filtered = manifest.files.filter((f: any) => {
+          if (typeof f.source !== "string") return false;
+          const source = f.source;
+          if (/pexels/i.test(source)) return false;
+          return /pam/i.test(source);
+        });
         const images: GallerySource[] = filtered.slice(0, 12).map((f: any) => {
           const outputs = Array.isArray(f.outputs) ? f.outputs : [];
           // prefer a mid/large size for the primary src (1024 then 1440 then last)
@@ -139,17 +141,17 @@ const HomePage: React.FC = () => {
     {
       images: galleryImages.map((image, index) => ({ ...image, index })),
       reverse: false,
-      duration: 410,
+      duration: 40,
     },
     {
       images: galleryImages.map((image, index) => ({ ...image, index })),
       reverse: true,
-      duration: 410,
+      duration: 36,
     },
     {
       images: galleryImages.map((image, index) => ({ ...image, index })),
       reverse: false,
-      duration: 410,
+      duration: 44,
     },
   ];
 
@@ -245,6 +247,9 @@ const HomePage: React.FC = () => {
       {/* Our Gallery */}
       <section className="py-10 md:py-16" id="gallery">
         <div className="text-center max-w-3xl mx-auto mb-10 md:mb-14 px-4">
+          <h2 className="text-2xl md:text-3xl font-black text-bg-brand-goldDark uppercase tracking-tight">
+            Our Gallery
+          </h2>
           <h4 className="text-brand-purple font-black tracking-widest text-[10px] uppercase mb-2">
             Moments of Faith
           </h4>
@@ -263,23 +268,31 @@ const HomePage: React.FC = () => {
                 className={`marquee-track ${row.reverse ? "marquee-right" : "marquee-left"}`}
                 style={{ animationDuration: `${row.duration}s` }}
               >
-                {[...row.images, ...row.images].map((img, itemIndex) => (
-                  <button
-                    key={`${rowIndex}-${itemIndex}`}
-                    type="button"
-                    onClick={() => setLightboxIndex(img.index)}
-                    className="marquee-item h-full min-w-[240px] sm:min-w-[280px] md:min-w-[320px] overflow-hidden rounded-[1.5rem] border border-white/60 shadow-sm focus:outline-none"
-                  >
-                    <img
-                      src={img.src}
-                      srcSet={img.srcSet}
-                      sizes={img.sizes}
-                      loading={itemIndex < 3 ? "eager" : "lazy"}
-                      decoding="async"
-                      alt={img.alt}
-                    />
-                  </button>
-                ))}
+                {(() => {
+                  const second = row.images.slice();
+                  if (second.length > 1) {
+                    // rotate the second copy so identical images are not adjacent
+                    second.push(second.shift()!);
+                  }
+                  const items = [...row.images, ...second];
+                  return items.map((img, itemIndex) => (
+                    <button
+                      key={`${rowIndex}-${itemIndex}`}
+                      type="button"
+                      onClick={() => setLightboxIndex(img.index)}
+                      className="marquee-item h-full min-w-[240px] sm:min-w-[280px] md:min-w-[320px] overflow-hidden rounded-[1.5rem] border border-white/60 shadow-sm focus:outline-none"
+                    >
+                      <img
+                        src={img.src}
+                        srcSet={img.srcSet}
+                        sizes={img.sizes}
+                        loading={itemIndex < 3 ? "eager" : "lazy"}
+                        decoding="async"
+                        alt={img.alt}
+                      />
+                    </button>
+                  ));
+                })()}
               </div>
             </div>
           ))}

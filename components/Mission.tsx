@@ -71,7 +71,7 @@ const Mission: React.FC = () => {
         <div className="bg-white rounded-2xl md:rounded-[2rem] overflow-hidden shadow-xl flex flex-col lg:flex-row items-stretch border border-gray-100">
           <div className="lg:w-1/2 relative min-h-[300px] md:min-h-[400px]">
             <OptimizedImage
-              src="/assets/gallery/pam01724"
+              src="/assets/gallery/PAM02227.jpg"  
               alt="Young Men Brotherhood"
               className="absolute inset-0 w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000"
               loading="eager"

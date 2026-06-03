@@ -68,7 +68,7 @@ const Promises: React.FC = () => {
           <div className="lg:w-1/2 relative">
             <div className="absolute -inset-4 border-2 border-brand-gold/20 rounded-3xl -z-10 translate-x-4 translate-y-4"></div>
             <OptimizedImage
-              src="/assets/pexels-rdne-5875444"
+              src="/assets/gallery/pexels-rdne-5875444-1440.webp"
               alt="Divine Light"
               className="w-full rounded-2xl shadow-2xl grayscale brightness-110 contrast-125"
               loading="lazy"

@@ -29,17 +29,24 @@ export const OptimizedImage: React.FC<OptimizedImageProps> = ({
   const [isLoaded, setIsLoaded] = useState(false);
 
   // Generate responsive srcset for WebP images only
-  const srcSetWebP = BREAKPOINTS.map((bp) =>
-    `${src}-${bp.width}.webp ${bp.width}w`
-  ).join(", ");
+  const hasExtension = /\.[a-z0-9]+(?:\?.*)?$/i.test(src);
+  const srcSetWebP = hasExtension
+    ? ""
+    : BREAKPOINTS.map((bp) => `${src}-${bp.width}.webp ${bp.width}w`).join(", ");
 
-  // Default src is the 480px version for fastest initial load
-  const defaultSrc = `${src}-480.webp`;
+  // Default src is the 480px version for fastest initial load unless a full file path is provided
+  const defaultSrc = hasExtension ? src : `${src}-480.webp`;
 
   return (
     <picture>
       {/* WebP format with responsive sizes */}
-      <source srcSet={srcSetWebP} type="image/webp" sizes="(max-width: 640px) 480px, (max-width: 1024px) 768px, (max-width: 1440px) 1024px, 1440px" />
+      {!hasExtension && (
+        <source
+          srcSet={srcSetWebP}
+          type="image/webp"
+          sizes="(max-width: 640px) 480px, (max-width: 1024px) 768px, (max-width: 1440px) 1024px, 1440px"
+        />
+      )}
       {/* Img tag with lazy loading */}
       <img
         src={defaultSrc}
