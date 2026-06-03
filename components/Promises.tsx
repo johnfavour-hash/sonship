@@ -1,4 +1,5 @@
 import React from "react";
+import { OptimizedImage } from "./OptimizedImage";
 import { Shield, Zap, Heart, Hand, Sun, Star, Anchor } from "lucide-react";
 
 const Promises: React.FC = () => {
@@ -66,10 +67,11 @@ const Promises: React.FC = () => {
           </div>
           <div className="lg:w-1/2 relative">
             <div className="absolute -inset-4 border-2 border-brand-gold/20 rounded-3xl -z-10 translate-x-4 translate-y-4"></div>
-            <img
-              src="/assets/pexels-rdne-5875444.jpg"
+            <OptimizedImage
+              src="/assets/pexels-rdne-5875444"
               alt="Divine Light"
               className="w-full rounded-2xl shadow-2xl grayscale brightness-110 contrast-125"
+              loading="lazy"
             />
             <div className="absolute inset-0 bg-brand-purple/10 mix-blend-multiply rounded-2xl"></div>
           </div>
