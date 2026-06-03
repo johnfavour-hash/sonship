@@ -132,17 +132,17 @@ const HomePage: React.FC = () => {
     {
       images: galleryImages.map((image, index) => ({ ...image, index })),
       reverse: false,
-      duration: 390,
+      duration: 410,
     },
     {
       images: galleryImages.map((image, index) => ({ ...image, index })),
       reverse: true,
-      duration: 390,
+      duration: 410,
     },
     {
       images: galleryImages.map((image, index) => ({ ...image, index })),
       reverse: false,
-      duration: 390,
+      duration: 410,
     },
   ];
 
