@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { OptimizedImage } from "./OptimizedImage";
 
 const Hero: React.FC = () => {
   const navigate = useNavigate();
@@ -7,43 +8,43 @@ const Hero: React.FC = () => {
 
   const slides = [
     {
-      url: "/assets/gallery/PAM01808.jpg",
+      url: "/assets/gallery/PAM01808",
       alt: "Sonship Hub Victory Celebration",
     },
     {
-      url: "/assets/gallery/PAM01824.jpg",
+      url: "/assets/gallery/PAM01824",
       alt: "Sonship Hub Dynamic Gathering",
     },
     {
-      url: "/assets/gallery/PAM01830.jpg",
+      url: "/assets/gallery/PAM01830",
       alt: "Sonship Hub Joyful Praise",
     },
     {
-      url: "/assets/gallery/PAM01836.jpg",
+      url: "/assets/gallery/PAM01836",
       alt: "Sonship Hub United in Worship",
     },
     {
-      url: "/assets/gallery/PAM01838.jpg",
+      url: "/assets/gallery/PAM01838",
       alt: "Sonship Hub Life Transformation",
     },
     {
-      url: "/assets/gallery/PAM01840.jpg",
+      url: "/assets/gallery/PAM01840",
       alt: "Sonship Hub Celebration Moment",
     },
     {
-      url: "/assets/gallery/PAM01843.jpg",
+      url: "/assets/gallery/PAM01843",
       alt: "Sonship Hub Faith Community",
     },
     {
-      url: "/assets/gallery/PAM01844.jpg",
+      url: "/assets/gallery/PAM01844",
       alt: "Sonship Hub Bold Believers",
     },
     {
-      url: "/assets/gallery/PAM01845.jpg",
+      url: "/assets/gallery/PAM01845",
       alt: "Sonship Hub Vibrant Worship",
     },
     {
-      url: "/assets/gallery/PAM01846.jpg",
+      url: "/assets/gallery/PAM01846",
       alt: "Sonship Hub Transformative Gathering",
     },
   ];
@@ -69,9 +70,10 @@ const Hero: React.FC = () => {
               index === currentSlide ? "opacity-100" : "opacity-0"
             }`}
           >
-            <img
+            <OptimizedImage
               src={slide.url}
               alt={slide.alt}
+              loading={index <= 1 ? "eager" : "lazy"}
               className={`w-full h-full object-cover transition-transform duration-[5000ms] ease-linear ${
                 index === currentSlide ? "scale-110" : "scale-100"
               }`}
